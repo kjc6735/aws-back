@@ -2,7 +2,7 @@ import { Problems } from './entities/problems.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
+import { data as d } from './data';
 @Injectable()
 export class ProblemsService {
   constructor(
@@ -25,7 +25,8 @@ export class ProblemsService {
     }
   }
 
-  async insert(data) {
+  async insert() {
+    const data = d;
     try {
       data.map(async (item) => {
         const newProblem = new Problems();

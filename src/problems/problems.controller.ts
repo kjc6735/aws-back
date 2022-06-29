@@ -1,5 +1,5 @@
 import { ProblemsService } from './problems.service';
-import { Controller, Get, Inject, Param, Res } from '@nestjs/common';
+import { Controller, Get, Inject, Param, Post, Req, Res } from '@nestjs/common';
 
 @Controller('problems')
 export class ProblemsController {
@@ -12,5 +12,10 @@ export class ProblemsController {
   @Get()
   getNumberList() {
     return this.problemsService.getProblemNumbers();
+  }
+
+  @Post()
+  insert() { 
+    return this.problemsService.insert();
   }
 }
